@@ -1,0 +1,21 @@
+{
+    "name": "trillzglobal/securemyid",
+    "description": "Package to connect application to secureMyID for Identity Verification",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TrillzGlobal\\SecureMyID\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Ojo",
+            "email": "trillzglobal@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": ">=7.4.3"
+    }
+}
