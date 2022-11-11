@@ -8,9 +8,9 @@ use \GuzzleHttp\{
     Exception\RequestException
 };
 
-class SecureMyIDAPI{
+class SecureMyIDAPI extends SecureMyID{
 
-    private function api_call($data, $url){
+    protected function api_call($data, $url){
         try {
 
             $content = [
@@ -27,13 +27,27 @@ class SecureMyIDAPI{
         }
 
     }
-    //Request Identity Verification
+    
+    //Generate Signature
 
-    public function verifyID($data){
-
+    private function signature($string){
+        $hash = hash("sha1", $string);
+        return substr($hash,0,16);
     }
-    //Report Identity
-    public function reportIdentity($data){
 
+
+    public function encrypt_data($payload) {
+        $iv = $this->signature($this->secret_key);
+        $ciphertext = openssl_encrypt($payload, $this->method, $iv, OPENSSL_RAW_DATA, $iv);
+        $hex= unpack('H*', $ciphertext);
+        return  $hex[1];
+        // return $hex;
+    }
+
+    public function decrypt_data($payload){
+        $iv = $this->signature($this->secret_key);
+        $payload = pack('H*', $payload);
+        $ciphertext = openssl_decrypt($payload, $this->method, $iv, OPENSSL_RAW_DATA, $iv);
+        return $ciphertext;
     }
 }
