@@ -1,6 +1,4 @@
-
-## :dart: SecureMyID ## 
-=====================
+## :dart: SecureMyID ## =
 
 <p align="center">
   <a href="https://github.com/SecureMyID/package-laravel/fork" target="_blank">
@@ -13,18 +11,6 @@
 
   <a href="https://github.com/SecureMyID/package-laravel/commits/main" target="_blank">
     <img src="https://img.shields.io/github/commit-activity/m/maurodesouza/profile-readme-generator?" alt="Badge showing average commit frequency per month"/>
-  </a>
-
-  <a href="https://github.com/SecureMyID/package-laravelcommits/main" target="_blank">
-    <img src="https://img.shields.io/github/last-commit/maurodesouza/profile-readme-generator?" alt="Badge showing when the last commit was made"/>
-  </a>
-
-  <a href="https://github.com/SecureMyID/package-laravel/issues" target="_blank">
-    <img src="https://img.shields.io/github/issues/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project issues"/>
-  </a>
-
-  <a href="https://github.com/maurodesouza/profile-readme-generator/pulls" target="_blank">
-    <img src="https://img.shields.io/github/issues-pr/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project pull-requests"/>
   </a>
 
   <a href="https://github.com/SecureMyID/package-laravel/LICENSE" target="_blank">
