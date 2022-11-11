@@ -1,4 +1,4 @@
-## :dart: SecureMyID ## =
+## :dart: SecureMyID ##
 
 <p align="center">
   <a href="https://github.com/SecureMyID/package-laravel/fork" target="_blank">
