@@ -10,10 +10,13 @@ use \GuzzleHttp\{
 
 class SecureMyIDAPI {
 
-    protected function api_call($data, $url){
-        try {
+    protected function api_call($data, $url)
+    {
+        try 
+        {
 
-            $content = [
+            $content = 
+            [
                  "headers"=>["SecureMyID-Token"=>$this->api_key,],
                  "json"=>$data
             ];
@@ -22,21 +25,23 @@ class SecureMyIDAPI {
             $data =(string) $response->getBody(true);
             $response = json_encode(["data"=>json_decode($data, true), "status"=>"success"]);
 
-        } catch (RequestException $e) {
+        } catch (RequestException $e) 
+        {
             //throw $th;
         }
 
     }
     
     //Generate Signature
-
-    private function signature($string){
+    private function signature($string)
+    {
         $hash = hash("sha1", $string);
         return substr($hash,0,16);
     }
 
 
-    public function encrypt_data($payload) {
+    public function encrypt_data($payload) 
+    {
         $iv = $this->signature($this->secret_key);
         print_r("IV: ".$iv."\n");
         $ciphertext = openssl_encrypt($payload, $this->method, $iv, OPENSSL_RAW_DATA, $iv);
@@ -45,7 +50,8 @@ class SecureMyIDAPI {
         // return $hex;
     }
 
-    public function decrypt_data($payload){
+    public function decrypt_data($payload)
+    {
         $iv = $this->signature($this->secret_key);
         $payload = pack('H*', $payload);
         $ciphertext = openssl_decrypt($payload, $this->method, $iv, OPENSSL_RAW_DATA, $iv);
