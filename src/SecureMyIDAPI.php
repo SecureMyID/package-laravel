@@ -8,7 +8,7 @@ use \GuzzleHttp\{
     Exception\RequestException
 };
 
-class SecureMyIDAPI extends SecureMyID{
+class SecureMyIDAPI {
 
     protected function api_call($data, $url){
         try {
@@ -38,6 +38,7 @@ class SecureMyIDAPI extends SecureMyID{
 
     public function encrypt_data($payload) {
         $iv = $this->signature($this->secret_key);
+        print_r("IV: ".$iv."\n");
         $ciphertext = openssl_encrypt($payload, $this->method, $iv, OPENSSL_RAW_DATA, $iv);
         $hex= unpack('H*', $ciphertext);
         return  $hex[1];

@@ -45,6 +45,5 @@ class SecureMyID extends SecureMyIDAPI {
     }
 
 
-
     
 }
