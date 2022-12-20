@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'trillzglobal/securemyid',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-development',
+        'version' => 'dev-development',
+        'reference' => 'b05707f61486be11f818cd2e67750902da87a2ee',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -113,9 +113,9 @@
             'dev_requirement' => false,
         ),
         'trillzglobal/securemyid' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-development',
+            'version' => 'dev-development',
+            'reference' => 'b05707f61486be11f818cd2e67750902da87a2ee',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -12,7 +12,7 @@ class SecureMyID extends SecureMyIDAPI {
     public $api_key;
     public $secret_key;
     public $method = "AES-128-CBC";
-    public $url = "https://backoffice.securemy.id/api/v1.0/company_requests";
+    public $url = "http://127.0.0.1:8800/api/v1.0/company_requests";
 
     public function __construct(string $api_key="", string $secret_key="" )
     {
@@ -25,7 +25,9 @@ class SecureMyID extends SecureMyIDAPI {
     {
         $encrypt_data =  $this->encrypt_data($data);
         $payload = ["type"=>"verify", "data"=>$encrypt_data];
-        $return =  $this->api_call($payload, $this->url);
+        $output =  $this->api_call($payload, $this->url);
+
+        return $output;
     }
 
     //Report Identity

@@ -2,6 +2,7 @@
 
 namespace TrillzGlobal\SecureMyID;
 
+use Exception;
 use \GuzzleHttp\{
     Client,
     Exception\ClientException,
@@ -18,6 +19,7 @@ class SecureMyIDAPI {
             $content = 
             [
                  "headers"=>["SecureMyID-Token"=>$this->api_key,],
+                 "verify"=>false,
                  "json"=>$data
             ];
             $client =  new Client();
@@ -25,10 +27,17 @@ class SecureMyIDAPI {
             $data =(string) $response->getBody(true);
             $response = json_encode(["data"=>json_decode($data, true), "status"=>"success"]);
 
-        } catch (RequestException $e) 
-        {
-            //throw $th;
+        } catch (ClientException $e) 
+        {   
+
+            $response = $e->getResponse()->getBody()->getContents();;
         }
+        catch(Exception $e) {
+            return json_encode(["status"=>"error","message"=>"Error Connecting"]); 
+        }
+        
+
+        return $response;
 
     }
     
